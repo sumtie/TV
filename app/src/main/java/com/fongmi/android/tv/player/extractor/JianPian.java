@@ -159,6 +159,7 @@ public class JianPian implements Source.Extractor, DownloadSource.Extractor {
             if (p2p == null || path == null) return;
             if ((pathPaused.containsKey(path) && pathPaused.get(path)) ) return;
             p2p.P2Pdoxpause(path.getBytes("GBK"));
+            p2p.P2Pdoxdel(path.getBytes("GBK"));
             pathPaused.put(path, true);
         } catch (Exception e) {
             e.printStackTrace();
