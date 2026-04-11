@@ -6,7 +6,7 @@ android {
     namespace 'com.fongmi.android.tv'
 
     compileSdk 35
-    flavorDimensions = ["mode", "api", "abi"]
+    flavorDimensions = ["mode", "abi"]
 
     defaultConfig {
         applicationId "com.fongmi.android.tv"
@@ -28,16 +28,6 @@ android {
         }
         mobile {
             dimension "mode"
-        }
-        java {
-            dimension "api"
-        }
-        python {
-            dimension "api"
-        }
-        x86 {
-            dimension "abi"
-            ndk { abiFilters "x86" }
         }
         arm64_v8a {
             dimension "abi"
@@ -73,7 +63,7 @@ android {
 
     android.applicationVariants.configureEach { variant ->
         variant.outputs.configureEach { output ->
-            outputFileName = "${variant.productFlavors[0].name}-${variant.productFlavors[1].name}-${variant.productFlavors[2].name}.apk"
+            outputFileName = "${variant.productFlavors[0].name}-${variant.productFlavors[1].name}.apk"
         }
     }
 
@@ -81,6 +71,11 @@ android {
         if (variant.buildType.name == 'release' && variant.productFlavors[0].name == 'mobile') {
             variant.mergeAssets.doLast {
                 delete(fileTree(dir: variant.mergeAssets.outputDir, includes: ['x5.tbs.apk']))
+            }
+        }
+        if (variant.buildType.name == 'release' && variant.productFlavors[0].name == 'leanback') {
+            variant.mergeAssets.doLast {
+                delete(fileTree(dir: variant.mergeAssets.outputDir, includes: ['x5.tbs.apk', 'go_proxy_video']))
             }
         }
     }
