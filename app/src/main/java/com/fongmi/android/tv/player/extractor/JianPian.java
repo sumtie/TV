@@ -22,6 +22,7 @@ public class JianPian implements Source.Extractor, DownloadSource.Extractor {
     private P2PClass p2p;
     private String path;
     private Map<String, Boolean> pathPaused;
+    public static int port;
 
 
     public P2PClass getP2PClass() {
@@ -63,6 +64,7 @@ public class JianPian implements Source.Extractor, DownloadSource.Extractor {
         init();
         stop();
         start(url);
+        port = p2p.port;
         return "http://127.0.0.1:" + p2p.port + "/" + URLEncoder.encode(Uri.parse(path).getLastPathSegment(), "GBK");
     }
 
