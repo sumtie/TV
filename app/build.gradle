@@ -97,6 +97,7 @@ dependencies {
     implementation project(':zlive')
     implementation project(':catvod')
     implementation project(':quickjs')
+    implementation project(':pyramid')
     implementation project(':thunder')
     implementation project(':youtube')
     implementation project(':jianpian')
