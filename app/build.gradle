@@ -77,14 +77,6 @@ android {
         }
     }
 
-    android.applicationVariants.all { variant ->
-        if (variant.buildType.name == 'release' && variant.productFlavors[0].name == 'mobile') {
-            variant.mergeAssets.doLast {
-                delete(fileTree(dir: variant.mergeAssets.outputDir, includes: ['x5.tbs.apk']))
-            }
-        }
-    }
-
     configurations.configureEach {
         resolutionStrategy {
             force 'com.squareup.okhttp3:okhttp:' + okhttpVersion
@@ -133,7 +125,6 @@ dependencies {
     implementation 'com.google.zxing:core:3.3.0'
     implementation 'com.guolindev.permissionx:permissionx:1.8.0'
     implementation 'com.hierynomus:smbj:0.13.0'
-    implementation 'com.tencent.tbs:tbssdk:44286'
     implementation 'javax.servlet:javax.servlet-api:3.1.0'
     implementation 'org.chromium.net:cronet-embedded:76.3809.111'
     implementation 'org.eclipse.jetty:jetty-client:8.1.22.v20160922'

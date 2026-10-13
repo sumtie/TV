@@ -22,14 +22,12 @@ import com.fongmi.android.tv.ui.dialog.CacheDirDialog;
 import com.fongmi.android.tv.ui.dialog.DisplayDialog;
 import com.fongmi.android.tv.ui.dialog.LanguageDialog;
 import com.fongmi.android.tv.ui.dialog.MenuKeyDialog;
-import com.fongmi.android.tv.ui.dialog.X5WebViewDialog;
 import com.fongmi.android.tv.utils.LanguageUtil;
 import com.fongmi.android.tv.utils.ResUtil;
 import com.fongmi.android.tv.utils.Util;
 import com.github.catvod.utils.Shell;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.permissionx.guolindev.PermissionX;
-import com.tencent.smtt.sdk.QbSdk;
 import java.util.Locale;
 
 public class SettingCustomActivity extends BaseActivity implements MenuKeyCallback, X5WebViewCallback, LanguageCallback, CacheDirCallback {
@@ -213,7 +211,6 @@ public class SettingCustomActivity extends BaseActivity implements MenuKeyCallba
         int index = Setting.getParseWebView();
         Setting.putParseWebView(index = index == parseWebview.length - 1 ? 0 : ++index);
         mBinding.parseWebviewText.setText(parseWebview[index]);
-        if (index == 1 && QbSdk.getTbsVersion(App.get()) <= 0) X5WebViewDialog.create(this).show();
     }
 
     private void setConfigCache(View view) {
