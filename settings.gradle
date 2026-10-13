@@ -26,13 +26,13 @@ dependencyResolutionManagement {
 }
 include ':app'
 include ':hook'
-include ':tvbus'
-include ':zlive'
+//include ':tvbus'
+//include ':zlive'
 include ':catvod'
 include ':quickjs'
-include ':thunder'
+//include ':thunder'
 include ':youtube'
-include ':jianpian'
-include ':forcetech'
+//include ':jianpian'
+//include ':forcetech'
 include ':ijkplayer'
 rootProject.name = "TV"
